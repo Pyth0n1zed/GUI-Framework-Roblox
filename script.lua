@@ -196,7 +196,9 @@ function gui:CreateTab(name)
 	btn.Size = UDim2.new(1,0,0.2,0)
 	btn.FontFace = Font.new("rbxasset://fonts/families/Roboto.json")
 	btn.TextScaled = true
-	btn.Weight = Enum.TextWeight.Light
+	btn.Weight = Enum.FontWeight.Light
+	btn.TextColor3 = Color3.fromRGB(255,255,255)
+	Instance.new("UICorner", btn).CornerRadius = UDim.new(0,8)
 
 	local tab = Instance.new("Frame", self.Tabs)
 	tab.Name = name
