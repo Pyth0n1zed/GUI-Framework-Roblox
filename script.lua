@@ -204,13 +204,26 @@ function gui:CreateTab(name, order)
 	Instance.new("UICorner", btn).CornerRadius = UDim.new(0,8)
 	btn.LayoutOrder = order or 1
 
-	local tab = Instance.new("Frame", self.Tabs)
+	local tab = Instance.new("ScrollingFrame", self.Tabs)
 	tab.Name = name
 	tab.BackgroundTransparency = 0.9
 	tab.Position = UDim2.new(0,0,0,0)
 	tab.Size = UDim2.new(1,0,1,0)
 	Instance.new("UICorner", tab).CornerRadius = UDim.new(0,8)
 	tab.Visible = false
+	tab.ScrollBarThickness = 3
+	tab.ScrollBarImageColor3 = Color3.fromRGB(102,102,102)
+	local tabull = Instance.new("UIListLayout", tab)
+	tabull.Padding = UDim.new(0,4)
+	tabull.FillDirection = Enum.FillDirection.Vertical
+	tabull.SortOrder = Enum.SortOrder.LayoutOrder
+	tabull.HorizontalAlignment = Enum.HorizontalAlignment.Left
+	tabull.VerticalAlignment = Enum.VerticalAlignment.Top
+	tabull:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
+    	tab.CanvasSize = UDim2.new(0, 0, 0, tabull.AbsoluteContentSize.Y)
+	end)
+
+	
 
 	btn.MouseButton1Click:Connect(function()
 		for _,v in pairs(self.Tabs:GetChildren()) do
