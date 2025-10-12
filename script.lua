@@ -214,6 +214,7 @@ function gui:CreateTab(name, order)
 		end
 		tab.Visible = true
 	end)
+	return tab
 end
 return gui
 end
