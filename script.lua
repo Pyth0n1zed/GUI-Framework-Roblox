@@ -164,7 +164,7 @@ tabselectorull.Padding = UDim.new(0,4)
 tabselectorull.FillDirection = Enum.FillDirection.Vertical
 tabselectorull.VerticalAlignment = Enum.VerticalAlignment.Top
 
-local tabs = Instance.new("Frame")
+local tabs = Instance.new("Frame", mainframe)
 tabs.BackgroundTransparency = 1
 tabs.Position = UDim2.new(0.283,0,0.106,0)
 tabs.Size = UDim2.new(0.679,0,0.858,0)
@@ -187,7 +187,7 @@ function gui:FinishLoading()
 	self.MainFrame.Visible = true
 end
 
-function gui:CreateTab(name)
+function gui:CreateTab(name, order)
 	local btn = Instance.new("TextButton")
 	btn.Name = name
 	btn.Text = name
@@ -198,6 +198,7 @@ function gui:CreateTab(name)
 	btn.FontFace = Font.new("rbxasset://fonts/families/Roboto.json", Enum.FontWeight.Light)
 	btn.TextScaled = true
 	Instance.new("UICorner", btn).CornerRadius = UDim.new(0,8)
+	btn.LayoutOrder = order or 1
 
 	local tab = Instance.new("Frame", self.Tabs)
 	tab.Name = name
