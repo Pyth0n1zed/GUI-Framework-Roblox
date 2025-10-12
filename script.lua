@@ -145,6 +145,9 @@ closetext.TextScaled = true
 closebtn.MouseButton1Click:Connect(function()
 	closedialogue.Visible = true
 end)
+minimdclose.MouseButton1Click:Connect(function()
+	closedialogue.Visible = true
+end)
 yesbtn.MouseButton1Click:Connect(function()
 	exti:Destroy()
 end)
@@ -163,6 +166,7 @@ local tabselectorull = Instance.new("UIListLayout", tabselector)
 tabselectorull.Padding = UDim.new(0,4)
 tabselectorull.FillDirection = Enum.FillDirection.Vertical
 tabselectorull.VerticalAlignment = Enum.VerticalAlignment.Top
+tabselectorull.SortOrder = Enum.SortOrder.LayoutOrder
 
 local tabs = Instance.new("Frame", mainframe)
 tabs.BackgroundTransparency = 1
