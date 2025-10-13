@@ -233,5 +233,53 @@ function gui:CreateTab(name, order)
 	end)
 	return tab
 end
+function gui:CreateButton(tab, typ, name, desc, order, func1, func2)
+	local btnf = Instance.new("Frame")
+	btnf.Parent = tab
+	btnf.LayoutOrder = order
+	btnf.BackgroundColor3 = Color3.fromRGB(125,125,125)
+	btnf.Transparency = 0.8
+	btnf.Size = UDim2.new(1,0,0.071,0)
+	Instance.new("UICorner",btnf).CornerRadius = UDim.new(0,8)
+
+	local namelabel = Instance.new("TextLabel",btnf)
+	namelabel.BackgroundTransparency = 1
+	namelabel.Position = UDim2.new(0,0,0,0)
+	namelabel.Size = UDim2.new(0.352,0,1,0)
+	namelabel.Text = name
+	namelabel.TextScaled = true
+	namelabel.TextColor3 = Color3.fromRGB(255,255,255)
+	namelabel.FontFace = Font.new("rbxasset://fonts/families/Arimo.json")
+
+	local desclabel = namelabel:Clone()
+	desclabel.Parent = btnf
+	desclabel.Text = desc
+	desclabel.TextColor3 = Color3.fromRGB(153,153,153)
+	desclabel.Position = UDim2.new(0.352,0,0,0)
+	desclabel.Size = UDim2.new(0.327,0,1,0)
+
+	local btn
+	if typ == "toggle" then
+		btn = Instance.new("TextButton")
+		btn.Parent = btnf
+		btn.BackgroundColor3 = Color3.fromRGB(36,76,99)
+		btn.BackgroundTransparency = 0.5
+		btn.Position = UDim2.new(0.678,0,0,0)
+		btn.Size = UDim2.new(0.322,0,1,0)
+		Instance.new("UICorner",btn).CornerRadius = UDim.new(0,8)
+		btn.Text = "OFF"
+		btn.TextScaled = true
+		btn.TextColor3 = Color3.fromRGB(255,255,255)
+		local on = false
+		btn.MouseButton1Click:Connect(function()
+			on = not on
+			if on then
+				func2()
+			else
+				func1()
+			end
+		end)
+	end
+end
 return gui
 end
