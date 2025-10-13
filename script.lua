@@ -16,7 +16,7 @@ local loadingtext = Instance.new("TextLabel", loading)
 loadingtext.BackgroundTransparency = 1
 loadingtext.Position = UDim2.new(0,0,0.319,0)
 loadingtext.Size = UDim2.new(1,0,0.362,0)
-loading.Visible = false
+loading.Visible = true
 
 local mainframe = Instance.new("Frame")
 mainframe.Parent = exti
@@ -25,7 +25,7 @@ mainframe.Position = UDim2.new(0.33,0,0.295,0)
 mainframe.Size = UDim2.new(0.339,0,0.408,0)
 mainframe.Active = true
 mainframe.Draggable = true
-mainframe.Visible = true
+mainframe.Visible = false
 local mainframeuic = Instance.new("UICorner")
 mainframeuic.Parent = mainframe
 mainframeuic.CornerRadius = UDim.new(0,12)
