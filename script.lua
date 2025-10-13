@@ -155,7 +155,7 @@ nobtn.MouseButton1Click:Connect(function()
 	closedialogue.Visible = false
 end)
 
-local tabselector = Instance.new("Frame")
+local tabselector = Instance.new("ScrollingFrame")
 tabselector.Parent = mainframe
 tabselector.BackgroundColor3 = Color3.fromRGB(27,45,47)
 tabselector.BackgroundTransparency = 0.5
@@ -167,6 +167,12 @@ tabselectorull.Padding = UDim.new(0,4)
 tabselectorull.FillDirection = Enum.FillDirection.Vertical
 tabselectorull.VerticalAlignment = Enum.VerticalAlignment.Top
 tabselectorull.SortOrder = Enum.SortOrder.LayoutOrder
+tabselector.ScrollBarThickness = 2
+tabselector.ScrollBarImageColor3 = Color3.fromRGB(102,102,102)
+
+tabselectorull:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
+    tabselector.CanvasSize = UDim2.new(0,0,0,tabselectorull.AbsoluteContentSize.Y)
+end)
 
 local tabs = Instance.new("Frame", mainframe)
 tabs.BackgroundTransparency = 1
