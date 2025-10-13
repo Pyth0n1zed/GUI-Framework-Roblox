@@ -239,7 +239,7 @@ function gui:CreateButton(tab, typ, name, desc, order, func1, func2)
 	btnf.LayoutOrder = order
 	btnf.BackgroundColor3 = Color3.fromRGB(125,125,125)
 	btnf.BackgroundTransparency = 0.8
-	btnf.Size = UDim2.new(1,0,0.071,0)
+	btnf.Size = UDim2.new(1,0,0.1,0)
 	Instance.new("UICorner",btnf).CornerRadius = UDim.new(0,8)
 
 	local namelabel = Instance.new("TextLabel",btnf)
