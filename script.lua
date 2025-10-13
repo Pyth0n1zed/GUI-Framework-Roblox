@@ -265,17 +265,18 @@ function gui:CreateButton(tab, typ, name, desc, order, func1, func2)
 	desclabel.Size = UDim2.new(0.327,0,1,0)
 
 	local btn
+	btn = Instance.new("TextButton")
+	btn.Parent = btnf
+	btn.BackgroundColor3 = Color3.fromRGB(36,76,99)
+	btn.BackgroundTransparency = 0.5
+	btn.Position = UDim2.new(0.678,0,0,0)
+	btn.Size = UDim2.new(0.322,0,1,0)
+	Instance.new("UICorner",btn).CornerRadius = UDim.new(0,8)
+	btn.Text = "OFF"
+	btn.TextScaled = true
+	btn.TextColor3 = Color3.fromRGB(255,255,255)
+	
 	if typ == "toggle" then
-		btn = Instance.new("TextButton")
-		btn.Parent = btnf
-		btn.BackgroundColor3 = Color3.fromRGB(36,76,99)
-		btn.BackgroundTransparency = 0.5
-		btn.Position = UDim2.new(0.678,0,0,0)
-		btn.Size = UDim2.new(0.322,0,1,0)
-		Instance.new("UICorner",btn).CornerRadius = UDim.new(0,8)
-		btn.Text = "OFF"
-		btn.TextScaled = true
-		btn.TextColor3 = Color3.fromRGB(255,255,255)
 		local on = false
 		btn.MouseButton1Click:Connect(function()
 			on = not on
@@ -286,6 +287,11 @@ function gui:CreateButton(tab, typ, name, desc, order, func1, func2)
 				btn.Text = "OFF"
 				func2()
 			end
+		end)
+	elseif typ == "trigger" then
+		btn.Text = "Run"
+		btn.MouseButton1Click:Connect(function()
+			func1()
 		end)
 	end
 end
