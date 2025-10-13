@@ -227,7 +227,7 @@ function gui:CreateTab(name, order)
 
 	btn.MouseButton1Click:Connect(function()
 		for _,v in pairs(self.Tabs:GetChildren()) do
-			if v:IsA("Frame") then v.Visible = false end
+			if v:IsA("ScrollingFrame") then v.Visible = false end
 		end
 		tab.Visible = true
 	end)
