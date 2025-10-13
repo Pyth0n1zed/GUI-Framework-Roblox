@@ -274,10 +274,10 @@ function gui:CreateButton(tab, typ, name, desc, order, func1, func2)
 		btn.MouseButton1Click:Connect(function()
 			on = not on
 			if on then
-				btn.Text = "OFF"
+				btn.Text = "ON"
 				func1()
 			else
-				btn.Text = "ON"
+				btn.Text = "OFF"
 				func2()
 			end
 		end)
