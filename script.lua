@@ -238,7 +238,7 @@ function gui:CreateButton(tab, typ, name, desc, order, func1, func2)
 	btnf.Parent = tab
 	btnf.LayoutOrder = order
 	btnf.BackgroundColor3 = Color3.fromRGB(125,125,125)
-	btnf.Transparency = 0.8
+	btnf.BackgroundTransparency = 0.8
 	btnf.Size = UDim2.new(1,0,0.071,0)
 	Instance.new("UICorner",btnf).CornerRadius = UDim.new(0,8)
 
@@ -274,9 +274,11 @@ function gui:CreateButton(tab, typ, name, desc, order, func1, func2)
 		btn.MouseButton1Click:Connect(function()
 			on = not on
 			if on then
-				func2()
-			else
+				btn.Text = "OFF"
 				func1()
+			else
+				btn.Text = "ON"
+				func2()
 			end
 		end)
 	end
