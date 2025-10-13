@@ -294,6 +294,27 @@ function gui:CreateButton(tab, typ, name, desc, order, func1, func2)
 			func1()
 		end)
 	end
+	return btnf
+end
+
+function gui:CreateLabel(tab,text,order)
+	local tframe = Instance.new("Frame")
+	tframe.Parent = tab
+	tframe.BackgroundColor3 = Color3.fromRGB(125,125,125)
+	tframe.BackgroundTransparency = 0.9
+	tframe.LayoutOrder = order
+	tframe.Size = UDim2.new(1,0,0.071,0)
+
+	local label = Instance.new("TextLabel")
+	label.Parent = tframe
+	label.BackgroundTransparency =1
+	label.Position = UDim2.new(-0.006,0,0.277,0)
+	label.Size = UDim2.new(1,0,0.473,0)
+	label.Text = text
+	label.TextColor3 = Color3.fromRGB(140,140,140)
+	label.TextScaled = true
+	label.FontFace = Font.new("rbxasset://fonts/families/Arimo.json")
+	return tframe
 end
 return gui
 end
