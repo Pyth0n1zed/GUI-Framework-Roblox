@@ -317,7 +317,7 @@ function gui:CreateLabel(tab,text,order)
 	return tframe
 end
 
-function gui:CreateTextInput(tab,text,desc,order,func)
+function gui:CreateTextInput(tab,name,desc,order,func)
 	local btnf = Instance.new("Frame")
 	btnf.Parent = tab
 	btnf.LayoutOrder = order
