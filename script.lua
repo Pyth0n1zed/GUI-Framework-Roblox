@@ -355,7 +355,7 @@ function gui:CreateTextInput(tab,name,desc,order,func)
 	btn.TextColor3 = Color3.fromRGB(255,255,255)
 	btn.PlaceholderText = "Input"
 	btn.PlaceholderColor3 = Color3.fromRGB(120,120,120)
-	btn.GetPropertyChangedSignal("Text"):Connect(function()
+	btn:GetPropertyChangedSignal("Text"):Connect(function()
 
 		func(btn.Text)
 	end)
