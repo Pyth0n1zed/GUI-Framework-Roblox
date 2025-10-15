@@ -350,7 +350,7 @@ function gui:CreateTextInput(tab,name,desc,order,func)
 	btn.Position = UDim2.new(0.678,0,0,0)
 	btn.Size = UDim2.new(0.322,0,1,0)
 	Instance.new("UICorner",btn).CornerRadius = UDim.new(0,8)
-	btn.Text = "OFF"
+	btn.Text = ""
 	btn.TextScaled = true
 	btn.TextColor3 = Color3.fromRGB(255,255,255)
 	btn.PlaceholderText = "Input"
