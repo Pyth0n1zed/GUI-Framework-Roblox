@@ -10,7 +10,7 @@ exti.ResetOnSpawn = false
 
 local loading = Instance.new("Frame", exti)
 loading.BackgroundColor3 = Color3.fromRGB(12,20,21)
-loading.Position = UDim2.new("0.362,0,0.392,0")
+loading.Position = UDim2.new(0.362,0,0.392,0)
 loading.Size = UDim2.new(0.275,0,0.216,0)
 Instance.new("UICorner", loading).CornerRadius = UDim.new(0,8)
 local loadingtext = Instance.new("TextLabel", loading)
@@ -42,7 +42,7 @@ local closebtn = Instance.new("TextButton")
 closebtn.Parent = mainframe
 closebtn.BackgroundTransparency = 1
 closebtn.Position = UDim2.new(0.933,0,0.012,0)
-closebtn.Size = UDim2.new(0.052,0,0.079,0)
+closebtn.Size = .new(0.052,0,0.079,0)
 closebtn.TextColor3 = Color3.fromRGB(255,255,255)
 closebtn.Text = "X"
 closebtn.TextScaled = true
@@ -378,7 +378,7 @@ function gui:Notify(text)
     f.Size = UDim2.new(0.985,0,0.146,0)
     notifCount = notifCount + 1
     local fuic = Instance.new("UICorner", f)
-    fuic.CornerRadius = UDim2.new(0,8)
+    fuic.CornerRadius = UDim.new(0,8)
     local slidey = f:Clone()
     slidey.Parent = f
     slidey.Position = UDim2.new(0,0,0.967,0)
