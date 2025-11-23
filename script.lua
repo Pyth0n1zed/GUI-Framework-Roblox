@@ -1,4 +1,5 @@
 return function()
+local ts = game:GetService("TweenService")
 local gui = {}
 local plr = game.Players.LocalPlayer
 local theshadowrealm = game.Workspace
@@ -359,6 +360,53 @@ function gui:CreateTextInput(tab,name,desc,order,func)
 
 		func(btn.Text)
 	end)
+end
+local notifTray = Instance.new("Frame", exti)
+notifTray.Position = UDim2.new(0.904,0,0,0)
+notifTray.Size = UDim2.new(0.095,0,0.702,0)
+notifTray.BackgroundTransparency = 1
+local notifTrayULL = Instance.new("UIListLayout", notifTray)
+notifTrayULL.Padding = UDim.new(0,8)
+notifTrayULL.HorizontalAlignment = Enum.HorizontalAlignment.Center
+notifTrayULL.VerticalAlignment = Enum.VerticalAlignment.Bottom
+notifTrayULL.SortOrder = Enum.SortOrder.Name
+local notifCount = 0
+function gui:Notify(text)
+    local f = Instance.new("Frame", notifTray)
+    f.Name = tostring(notifCount+1)
+    f.BackgroundColor = Color3.fromRGB(12,20,31)
+    f.Size = UDim2.new(0.985,0,0.146,0)
+    notifCount = notifCount + 1
+    local fuic = Instance.new("UICorner", f)
+    fuic.CornerRadius = UDim2.new(0,8)
+    local slidey = f:Clone()
+    slidey.Parent = f
+    slidey.Position = UDim2.new(0,0,0.967,0)
+    slidey.Size = UDim2.new(1,0,0.033,0)
+    slidey.BackgroundColor3 = Color3.fromRGB(57,64,124)
+    local info = Instance.new("TextLabel", f)
+    info.BackgroundTransparency = 1
+    info.Position = UDim2.new(0,0,0,0)
+    info.Size = UDim2.new(0.225,0,0.512,0)
+    info.Text = "ⓘ"
+    info.TextScaled = true
+    info.TextColor3 = Color3.fromRGB(255,255,255)
+    local t = info:Clone()
+    t.Parent = f
+    t.Text = text
+    t.Position = UDim2.new(0.225,0,0.083,0)
+    t.Size = UDim2.new(0.775,0,0.788,0)
+    t.FontFace = Font.new("rbxasset://fonts/families/Nunito.json", Enum.FontWeight.Light,
+    Enum.FontStyle.Normal)
+    t.TextYAlignment = Enum.TextYAlignment.Top
+
+
+    local tween = ts:Create(slidey,TweenInfo.new(5,Enum.EasingStyle.Linear,Enum.EasingDirection.Out), {Size = UDim2.new(0, 0, 0.033, 0)})
+
+    tween:Play()
+    tween.Completed:Connect(function()
+        f:Destroy()
+    end)
 end
 return gui
 end
