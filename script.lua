@@ -374,7 +374,7 @@ local notifCount = 0
 function gui:Notify(text)
     local f = Instance.new("Frame", notifTray)
     f.Name = tostring(notifCount+1)
-    f.BackgroundColor = Color3.fromRGB(12,20,31)
+    f.BackgroundColor3 = Color3.fromRGB(12,20,31)
     f.Size = UDim2.new(0.985,0,0.146,0)
     notifCount = notifCount + 1
     local fuic = Instance.new("UICorner", f)
