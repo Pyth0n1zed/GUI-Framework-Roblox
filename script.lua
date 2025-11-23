@@ -395,7 +395,7 @@ function gui:Notify(text)
     t.Parent = f
     t.Text = text
     t.Position = UDim2.new(0.225,0,0.083,0)
-    t.Size = UDim2.new(0.775,0,0.788,0)
+    t.Size = UDim2.new(0.745,0,0.909,0)
     t.FontFace = Font.new("rbxasset://fonts/families/Nunito.json", Enum.FontWeight.Light,
     Enum.FontStyle.Normal)
     t.TextYAlignment = Enum.TextYAlignment.Top
