@@ -425,10 +425,9 @@ function gui:Notify(text, dur)
 			if hasProperty(v,"TextTransparency") then
 				ts:Create(v,t2info,{TextTransparency = 1}):Play()
 			elseif hasProperty(v,"BackgroundTransparency") then
-				ts:Create(v,t2info,{BackgroundTransparency = 1}):Play()
+				ts:Create(v,t2info,{BackgroundTransparency = 1}):Play():Completed:Connect(function() if f then f:Destroy() end)
 			end
 		end
-        f:Destroy()
     end)
 end
 return gui
