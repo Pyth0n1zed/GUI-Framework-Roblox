@@ -5,7 +5,7 @@ local plr = game.Players.LocalPlayer
 local theshadowrealm = game.Workspace
 local function hasProperty(obj,property)
 	return pcall(function()
-		obj[property]
+		return obj[property]
 	end)
 
 end
@@ -428,7 +428,7 @@ function gui:Notify(text, dur)
 				--ts:Create(v,t2info,{BackgroundTransparency = 1}):Play():Completed:Connect(function() if f then f:Destroy() end)
 				local tweenity = ts:Create(v,t2info,{BackgroundTransparency = 1})
 				tweenity:Play()
-				tweenity.Completed:Connect(function() if f then f:Destroy() end)
+				tweenity.Completed:Connect(function() if f then f:Destroy() end end)
 			end
 		end
     end)
