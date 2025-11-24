@@ -391,6 +391,7 @@ function gui:Notify(text, dur)
     info.Text = "ⓘ"
     info.TextScaled = true
     info.TextColor3 = Color3.fromRGB(255,255,255)
+	info.TextTransparency = 1
     local t = info:Clone()
     t.Parent = f
     t.Text = text
@@ -399,12 +400,29 @@ function gui:Notify(text, dur)
     t.FontFace = Font.new("rbxasset://fonts/families/Nunito.json", Enum.FontWeight.Light,
     Enum.FontStyle.Normal)
     t.TextYAlignment = Enum.TextYAlignment.Top
+	t.TextTransparency = 1
 
 
     local tween = ts:Create(slidey,TweenInfo.new(dur,Enum.EasingStyle.Linear,Enum.EasingDirection.Out), {Size = UDim2.new(0, 0, 0.033, 0)})
-
+	local t2info = TweenInfo.new(0.2,Enum.EasingStyle.Linear,Enum.EasingDirection.Out)
+	ts:Create(f,t2info,{BackgroundTransparency = 0}):Play()
+	for _,v in pairs(f:GetDescendants()) do
+		if hasProperty(v,"TextTransparency") then
+			ts:Create(v,t2info,{TextTransparency = 0}):Play()
+		elseif hasProperty(v,"BackgroundTransparency") then
+			ts:Create(v,t2info,{BackgroundTransparency = 0}):Play()
+		end
+	end
     tween:Play()
     tween.Completed:Connect(function()
+		ts:Create(f,t2info,{BackgroundTransparency = 1}):Play()
+		for _,v in pairs(f:GetDescendants()) do
+			if hasProperty(v,"TextTransparency") then
+				ts:Create(v,t2info,{TextTransparency = 1}):Play()
+			elseif hasProperty(v,"BackgroundTransparency") then
+				ts:Create(v,t2info,{BackgroundTransparency = 1}):Play()
+			end
+		end
         f:Destroy()
     end)
 end
