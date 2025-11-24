@@ -425,7 +425,10 @@ function gui:Notify(text, dur)
 			if hasProperty(v,"TextTransparency") then
 				ts:Create(v,t2info,{TextTransparency = 1}):Play()
 			elseif hasProperty(v,"BackgroundTransparency") then
-				ts:Create(v,t2info,{BackgroundTransparency = 1}):Play():Completed:Connect(function() if f then f:Destroy() end)
+				--ts:Create(v,t2info,{BackgroundTransparency = 1}):Play():Completed:Connect(function() if f then f:Destroy() end)
+				local tweenity = ts:Create(v,t2info,{BackgroundTransparency = 1})
+				tweenity:Play()
+				tweenity.Completed:Connect(function() if f then f:Destroy() end)
 			end
 		end
     end)
