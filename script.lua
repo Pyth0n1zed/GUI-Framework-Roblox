@@ -362,8 +362,8 @@ function gui:CreateTextInput(tab,name,desc,order,func)
 	end)
 end
 local notifTray = Instance.new("Frame", exti)
-notifTray.Position = UDim2.new(0.904,0,0,0)
-notifTray.Size = UDim2.new(0.095,0,0.702,0)
+notifTray.Position = UDim2.new(0.853,0,0,0)
+notifTray.Size = UDim2.new(0.147,0,0.702,0)
 notifTray.BackgroundTransparency = 1
 local notifTrayULL = Instance.new("UIListLayout", notifTray)
 notifTrayULL.Padding = UDim.new(0,8)
@@ -371,7 +371,7 @@ notifTrayULL.HorizontalAlignment = Enum.HorizontalAlignment.Center
 notifTrayULL.VerticalAlignment = Enum.VerticalAlignment.Bottom
 notifTrayULL.SortOrder = Enum.SortOrder.Name
 local notifCount = 0
-function gui:Notify(text)
+function gui:Notify(text, dur)
     local f = Instance.new("Frame", notifTray)
     f.Name = tostring(notifCount+1)
     f.BackgroundColor3 = Color3.fromRGB(12,20,31)
@@ -401,7 +401,7 @@ function gui:Notify(text)
     t.TextYAlignment = Enum.TextYAlignment.Top
 
 
-    local tween = ts:Create(slidey,TweenInfo.new(5,Enum.EasingStyle.Linear,Enum.EasingDirection.Out), {Size = UDim2.new(0, 0, 0.033, 0)})
+    local tween = ts:Create(slidey,TweenInfo.new(dur,Enum.EasingStyle.Linear,Enum.EasingDirection.Out), {Size = UDim2.new(0, 0, 0.033, 0)})
 
     tween:Play()
     tween.Completed:Connect(function()
