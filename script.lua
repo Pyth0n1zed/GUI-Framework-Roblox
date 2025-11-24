@@ -3,7 +3,12 @@ local ts = game:GetService("TweenService")
 local gui = {}
 local plr = game.Players.LocalPlayer
 local theshadowrealm = game.Workspace
+local function hasProperty(obj,property)
+	return pcall(function()
+		obj:GetPropertyChangedSignal(property)
+	end)
 
+end
 local exti = Instance.new("ScreenGui")
 exti.Parent = plr.PlayerGui
 exti.ResetOnSpawn = false
