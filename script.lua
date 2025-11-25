@@ -177,9 +177,12 @@ tabselector.ScrollBarThickness = 2
 tabselector.ScrollBarImageColor3 = Color3.fromRGB(102,102,102)
 
 tabselectorull:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
+	task.defer(function()
+
 	if tabselector.CanvasSize.Y.Offset ~= (tabselectorull.AbsoluteContentSize.Y) then
 		tabselector.CanvasSize = UDim2.new(0, 0, 0, tabselectorull.AbsoluteContentSize.Y)
 	end
+	end)
 end)
 
 
