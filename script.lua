@@ -176,9 +176,14 @@ tabselectorull.SortOrder = Enum.SortOrder.LayoutOrder
 tabselector.ScrollBarThickness = 2
 tabselector.ScrollBarImageColor3 = Color3.fromRGB(102,102,102)
 
+local updating = false
 tabselectorull:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
-    tabselector.CanvasSize = UDim2.new(0,0,0,tabselectorull.AbsoluteContentSize.Y)
+    if updating then return end
+    updating = true
+    tabselector.CanvasSize = UDim2.new(0, 0, 0, tabselectorull.AbsoluteContentSize.Y)
+    updating = false
 end)
+
 
 local tabs = Instance.new("Frame", mainframe)
 tabs.BackgroundTransparency = 1
