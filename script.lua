@@ -177,7 +177,7 @@ tabselector.ScrollBarThickness = 2
 tabselector.ScrollBarImageColor3 = Color3.fromRGB(102,102,102)
 
 tabselectorull:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
-	if tabselector.CanvasSize.Y.Offset < (tabselectorull.AbsoluteContentSize.Y + 10) then
+	if tabselector.CanvasSize.Y.Offset < (tabselectorull.AbsoluteContentSize.Y) then
 		tabselector.CanvasSize = UDim2.new(0, 0, 0, tabselectorull.AbsoluteContentSize.Y + 10)
 	end
 end)
@@ -235,8 +235,8 @@ function gui:CreateTab(name, order)
 	tabull.HorizontalAlignment = Enum.HorizontalAlignment.Left
 	tabull.VerticalAlignment = Enum.VerticalAlignment.Top
 	tabull:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
-		if tab.CanvasSize.Y.Offset < tabull.AbsoluteContentSize.Y then
-			tab.CanvasSize = UDim2.new(0, 0, 0, tabull.AbsoluteContentSize.Y)
+		if tab.CanvasSize.Y.Offset < (tabull.AbsoluteContentSize.Y) then
+			tab.CanvasSize = UDim2.new(0, 0, 0, tabull.AbsoluteContentSize.Y + 10)
 		end
 	end)
 
